@@ -1,0 +1,45 @@
+# Phase 1 Experiment Configuration
+
+# Datasets
+dataset: "adult"
+data_dir: "./data"
+
+# Model architectures to test
+architectures:
+  - "1layer"
+  - "2layer"
+
+# Model parameters
+hidden_size: 64
+num_classes: 1
+
+# Batch sizes to test
+batch_sizes:
+  - 1
+  - 4
+  - 5
+  - 8
+  - 16
+
+# Training parameters
+train_fraction: 0.3
+test_fraction: 0.3
+training_epochs: 10
+learning_rate: 0.1
+momentum: 0.8
+
+# Attack parameters
+attack_config:
+  attack_lr: 0.1
+  iterations: 1000
+  reg_weight: 0.01
+  label_known: true  # Start with label-known attacker
+
+# Experiment settings
+random_seed: 42
+num_trials_per_config: 3  # Run each configuration multiple times
+
+# Output
+results_dir: "./results"
+save_reconstructions: true
+generate_visualizations: true
