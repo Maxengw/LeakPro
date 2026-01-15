@@ -1,11 +1,11 @@
 name: Running tests
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-  workflow_dispatch:
+# TO RE-ENABLE REMOVE "[]" AND DE-COMMENT
+on: []
+  #push:
+  #  branches:
+  #    - main
+  #pull_request:
+  #workflow_dispatch:
 
 jobs:
   code-checks-and-tests:

@@ -1,0 +1,41 @@
+name: Running tests on tabular GIA
+# CHANGE TO BELOW BEFORE PR
+#on:
+#  push:
+#    branches:
+#      - main
+#  pull_request:
+#    branches:
+#      - main
+
+on: 
+  - push
+  - pull_request
+
+jobs:
+  lint_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install .[dev]
+      
+      - name: Ruff lint
+        run: |
+          pip install ruff==0.11.2
+          ruff check .
+        working-directory: examples/gia/GIA_base_running_tabular
+
+      - name: Run tests
+        run: |
+          pytest test/test.py
+        working-directory: examples/gia/GIA_base_running_tabular
