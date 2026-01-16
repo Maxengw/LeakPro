@@ -32,6 +32,7 @@ jobs:
       - name: Ruff lint
         run: |
           pip install ruff==0.11.2
+          ruff format .
           ruff check .
         working-directory: examples/gia/GIA_base_running_tabular
 
