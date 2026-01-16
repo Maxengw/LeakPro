@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent  # .../GIA_base_running_tabula
 if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
-from data.create_synthetic_datasets import create_synthetic_datasets  # noqa: E402
+from synthetic_datasets.create_synthetic_datasets import create_synthetic_datasets  # noqa: E402
 from tabular import get_tabular_loaders  # noqa: E402
 from train import train_global_model  # noqa: E402
 
